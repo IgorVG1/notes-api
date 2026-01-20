@@ -1,0 +1,10 @@
+[32mINFO    [0m HTTP_CLIENT:event_hooks.py:13 Make POST request to https://practice.expandtesting.com/notes/api/users/register
+[32mINFO    [0m HTTP_CLIENT:event_hooks.py:22 Got response 201 Created from https://practice.expandtesting.com/notes/api/users/register
+[32mINFO    [0m BASE_ASSERTIONS:base.py:16 Check that response status code equals to 201
+[32mINFO    [0m USERS_ASSERTIONS:users.py:17 Check create user response
+[32mINFO    [0m BASE_ASSERTIONS:base.py:50 Check that "name" equals to Lisa Smith
+[32mINFO    [0m BASE_ASSERTIONS:base.py:50 Check that "email" equals to travisbrown@example.net
+[32mINFO    [0m BASE_ASSERTIONS:base.py:50 Check that "success" equals to True
+[32mINFO    [0m BASE_ASSERTIONS:base.py:50 Check that "status" equals to 201
+[32mINFO    [0m BASE_ASSERTIONS:base.py:50 Check that "message" equals to User account created successfully
+[32mINFO    [0m SCHEMA_ASSERTIONS:schema.py:18 Validating JSON schema

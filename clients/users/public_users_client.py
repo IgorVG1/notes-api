@@ -5,6 +5,7 @@ from clients.public_http_builder import get_public_http_client
 from clients.users.public_users_schema import CreateUserRequestSchema, CreateUserResponseSchema, ForgetPasswordRequestSchema, \
     ForgetPasswordResponseSchema, VerifyResetPasswordTokenRequestSchema, VerifyResetPasswordTokenResponseSchema, \
     ResetPasswordRequestSchema, ResetPasswordResponseSchema
+from tools.routes import APIRoutes
 
 
 class PublicUsersClient(APIClient):
@@ -21,7 +22,7 @@ class PublicUsersClient(APIClient):
         :return: Ответ от сервера в виде объекта httpx.Response
         """
         return self.post(
-            url='/users/register',
+            url=f'{APIRoutes.USERS}/register',
             json=request.model_dump()
         )
 
@@ -47,7 +48,7 @@ class PublicUsersClient(APIClient):
         :param request: Словарь с email.
         :return: Ответ от сервера в виде объекта httpx.Response
         """
-        return self.post(url='/users/forgot-password',
+        return self.post(url=f'{APIRoutes.USERS}/forgot-password',
                          json=request.model_dump()
                          )
 
@@ -73,7 +74,7 @@ class PublicUsersClient(APIClient):
         :param request: Словарь с token.
         :return: Ответ от сервера в виде объекта httpx.Response
         """
-        return self.post(url='/users/verify-reset-password-token',
+        return self.post(url=f'{APIRoutes.USERS}/verify-reset-password-token',
                          json=request.model_dump()
                          )
 
@@ -99,7 +100,7 @@ class PublicUsersClient(APIClient):
         :param request: Словарь с token, newPassword.
         :return: Ответ от сервера в виде объекта httpx.Response
         """
-        return self.post(url='/users/reset-password',
+        return self.post(url=f'{APIRoutes.USERS}/reset-password',
                          json=request.model_dump(by_alias=True)
                          )
 

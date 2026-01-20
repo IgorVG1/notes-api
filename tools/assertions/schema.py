@@ -1,7 +1,10 @@
 from typing import Any
 from jsonschema import validate
 from jsonschema.validators import Draft202012Validator
+from tools.logger import get_logger
 
+
+logger = get_logger("SCHEMA_ASSERTIONS")
 
 
 def validate_json_schema(instance: Any, schema: Any):
@@ -12,6 +15,7 @@ def validate_json_schema(instance: Any, schema: Any):
     :param schema: Ожидаемая JSON-schema.
     :raises jsonschema.exceptions.ValidationError: Если instance не соответствует schema.
     """
+    logger.info(f"Validating JSON schema")
     validate(instance=instance,
              schema=schema,
              format_checker=Draft202012Validator.FORMAT_CHECKER

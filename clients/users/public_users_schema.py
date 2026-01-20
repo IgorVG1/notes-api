@@ -16,8 +16,15 @@ class CreateUserRequestSchema(BaseModel):
 
 class CreateUserResponseSchema(BaseModel):
     success: bool
+    status: int
     message: str
     data: PublicUserDataSchema
+
+
+class CreateInvalidUserResponseSchema(BaseModel):
+    success: bool
+    status: int
+    message: str
 
 
 class ForgetPasswordRequestSchema(BaseModel):

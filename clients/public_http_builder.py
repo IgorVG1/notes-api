@@ -1,4 +1,6 @@
 from httpx import Client
+from config import settings
+from clients.event_hooks import log_request_event_hook, log_response_event_hook
 
 
 def get_public_http_client() -> Client:
@@ -8,6 +10,10 @@ def get_public_http_client() -> Client:
     :return: Готовый к использованию объект httpx.Client.
     """
     return Client(
-        base_url='https://practice.expandtesting.com/notes/api',
-        timeout=100
+        base_url=settings.http_client.client_url,
+        timeout=settings.http_client.timeout,
+        event_hooks={
+            "request": [log_request_event_hook],
+            "response": [log_response_event_hook]
+        }
     )

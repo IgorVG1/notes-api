@@ -5,6 +5,8 @@ from clients.users.private_users_schema import GetUserResponseSchema, ChangePass
     DeleteUserResponseSchema
 from httpx import Response
 
+from tools.routes import APIRoutes
+
 
 class PrivateUsersClient(APIClient):
     """
@@ -16,7 +18,7 @@ class PrivateUsersClient(APIClient):
 
         :return: Ответ от сервера в виде объекта httpx.Response
         """
-        return self.get('/users/profile')
+        return self.get(f'{APIRoutes.USERS}/profile')
 
     def get_user(self) -> GetUserResponseSchema:
         """
@@ -37,7 +39,7 @@ class PrivateUsersClient(APIClient):
         :param request: Словарь с currentPassword, newPassword.
         :return: Ответ от сервера в виде объекта httpx.Response
         """
-        return self.post(url='/users/change-password',
+        return self.post(url=f'{APIRoutes.USERS}/change-password',
                          json=request.model_dump(by_alias=True)
                          )
 
@@ -62,7 +64,7 @@ class PrivateUsersClient(APIClient):
         :param request: Словарь с name, phone, company.
         :return: Ответ от сервера в виде объекта httpx.Response
         """
-        return self.patch(url='/users/profile',
+        return self.patch(url=f'{APIRoutes.USERS}/profile',
                           json=request.model_dump())
 
     def update_user(self,
@@ -84,7 +86,7 @@ class PrivateUsersClient(APIClient):
 
         :return: Ответ от сервера в виде объекта httpx.Response
         """
-        return self.delete(url='/users/logout')
+        return self.delete(url=f'{APIRoutes.USERS}/logout')
 
     def logout(self) -> LogoutResponseSchema:
         """
@@ -102,7 +104,7 @@ class PrivateUsersClient(APIClient):
 
         :return: Ответ от сервера в виде объекта httpx.Response
         """
-        return self.delete(url='/users/delete-account')
+        return self.delete(url=f'{APIRoutes.USERS}/delete-account')
 
 
     def delete_user(self) -> DeleteUserResponseSchema:

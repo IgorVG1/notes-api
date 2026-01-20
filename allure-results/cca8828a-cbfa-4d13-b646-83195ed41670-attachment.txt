@@ -1,0 +1,8 @@
+[32mINFO    [0m HTTP_CLIENT:event_hooks.py:13 Make POST request to https://practice.expandtesting.com/notes/api/users/register
+[32mINFO    [0m HTTP_CLIENT:event_hooks.py:22 Got response 400 Bad Request from https://practice.expandtesting.com/notes/api/users/register
+[32mINFO    [0m BASE_ASSERTIONS:base.py:16 Check that response status code equals to 400
+[32mINFO    [0m USERS_ASSERTIONS:users.py:33 Check create user response with invalid email
+[32mINFO    [0m BASE_ASSERTIONS:base.py:50 Check that "success" equals to False
+[32mINFO    [0m BASE_ASSERTIONS:base.py:50 Check that "status" equals to 400
+[32mINFO    [0m BASE_ASSERTIONS:base.py:50 Check that "message" equals to A valid email address is required
+[32mINFO    [0m SCHEMA_ASSERTIONS:schema.py:18 Validating JSON schema
